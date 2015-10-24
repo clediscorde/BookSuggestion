@@ -3,7 +3,7 @@ package com.clediscorde.booksuggestion.dto;
 import org.junit.Before;
 import org.junit.Test;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 /**
  * Created by clediscorde on 2015-10-20.
@@ -14,7 +14,17 @@ public class BookTest {
 
     @Before
     public void setUp() throws Exception {
-        book = new Book("Author", "Genre", 100, 2015, 3);
+        book = new Book("id", "title", "Author", "Genre", 100, 2015, 3);
+    }
+
+    @Test
+    public void testGetId() throws Exception {
+        assertEquals("id", book.getId());
+    }
+
+    @Test
+    public void testGetTitle() throws Exception {
+        assertEquals("title", book.getTitle());
     }
 
     @Test
