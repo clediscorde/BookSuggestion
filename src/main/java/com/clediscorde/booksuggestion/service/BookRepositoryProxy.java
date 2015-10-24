@@ -68,7 +68,7 @@ public class BookRepositoryProxy {
     }
 
     public BookModel save(BookModel bookModel) {
-        Book book = new Book(bookModel.getId(), bookModel.getTitle(), bookModel.getAuthor(), bookModel.getGenre(), bookModel.getNumberOfPage(), bookModel.getYearOfPublication(), bookModel.getOverallRating());
+        Book book       = new Book(bookModel.getId(), bookModel.getTitle(), bookModel.getAuthor(), bookModel.getGenre(), bookModel.getNumberOfPage(), bookModel.getYearOfPublication(), bookModel.getOverallRating());
         Book resultBook = bookRepository.save(book);
         bookModel.setId(resultBook.getId());
 

@@ -2,7 +2,7 @@ package com.clediscorde.booksuggestion.exception;
 
 import org.junit.Test;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 /**
  * Created by clediscorde on 2015-10-22.
