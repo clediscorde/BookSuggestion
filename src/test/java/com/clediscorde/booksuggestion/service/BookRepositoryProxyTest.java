@@ -10,19 +10,16 @@ import org.junit.Before;
 import org.junit.Test;
 import org.mockito.ArgumentCaptor;
 import org.springframework.data.mongodb.core.MongoTemplate;
-import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
 
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 import static org.mockito.Matchers.any;
 import static org.mockito.Matchers.eq;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.*;
 
 /**
  * Created by clediscorde on 2015-10-23.
@@ -30,8 +27,8 @@ import static org.mockito.Mockito.when;
 public class BookRepositoryProxyTest {
 
 
-    private BookRepository bookRepository;
-    private MongoTemplate  mongoTemplate;
+    private BookRepository      bookRepository;
+    private MongoTemplate       mongoTemplate;
     private BookRepositoryProxy bookRepositoryProxy;
 
     @Before
@@ -66,8 +63,8 @@ public class BookRepositoryProxyTest {
 
         when(mongoTemplate.find(any(Query.class), eq(Book.class))).thenReturn(Collections.singletonList(book));
 
-        BookCriteria bookCriteria = getBookCriteria();
-        List<BookModel> result = bookRepositoryProxy.search(bookCriteria);
+        BookCriteria    bookCriteria = getBookCriteria();
+        List<BookModel> result       = bookRepositoryProxy.search(bookCriteria);
 
         ArgumentCaptor<Query> queryArgumentCaptor = ArgumentCaptor.forClass(Query.class);
         verify(mongoTemplate).find(queryArgumentCaptor.capture(), eq(Book.class));
