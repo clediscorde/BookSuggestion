@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="bookSuggestionApp">
+<head>
+    <meta charset="UTF-8">
+    <title>Book Suggestion</title>
+
+    <script src="/resources/libs/angular-1.4.7/angular.js"></script>
+    <script src="/resources/scripts/book.js"></script>
+
+    <link href="/resources/libs/bootstrap-3.3.5-dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body ng-controller="SuggestBookController">
+<div class="container">
+    <h1>Book Suggestion</h1>
+
+    <form>
+        <div class="row">
+            <div class="col-md-3">
+                <label for="author">Author</label>
+                <select id="author" class="form-control" ng-model="selectAuthor"
+                        ng-options="author for author in authors">
+                    <option value=""></option>
+                </select>
+            </div>
+            <div class="col-md-3">
+                <label for="genre">Genre</label>
+                <select id="genre" class="form-control" ng-model="selectGenre" ng-options="genre for genre in genres">
+                    <option value=""></option>
+                </select>
+            </div>
+            <div class="col-md-3">
+                <label for="period">Period</label>
+                <select id="period" class="form-control" ng-model="selectPeriod">
+                    <option value=""></option>
+                    <option value="CLASSIC">Classic</option>
+                    <option value="MODERN">Modern</option>
+                </select>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-3">
+                <label for="inputMinPage">Min page</label>
+                <input type="text" id="inputMinPage" ng-model="inputMinPage" class="form-control" placeholder="0">
+            </div>
+            <div class="col-md-3">
+                <label for="inputMaxPage">Max page</label>
+                <input type="text" id="inputMaxPage" ng-model="inputMaxPage" class="form-control" placeholder="1000">
+            </div>
+        </div>
+        <div class="row">&nbsp;</div>
+        <div class="row">
+            <div class="col-md-3">
+                <button id="suggestbtn" class="btn btn-default" ng-click="suggestBook()">Suggest!!</button>
+            </div>
+        </div>
+    </form>
+    <table class="table">
+        <thead>
+            <th>Title</th>
+            <th>Author</th>
+            <th>Genre</th>
+            <th>Number of Page</th>
+            <th>Year of Publication</th>
+            <th>Overall Rating</th>
+        </thead>
+        <tr ng-repeat="b in books">
+            <td>{{ b.title }}</td>
+            <td>{{ b.author }}</td>
+            <td>{{ b.genre }}</td>
+            <td>{{ b.numberOfPage }}</td>
+            <td>{{ b.yearOfPublication }}</td>
+            <td>{{ b.overallRating }}</td>
+        </tr>
+    </table>
+</div>
+</body>
+</html>
