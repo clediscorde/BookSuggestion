@@ -16,16 +16,17 @@ The following technologies were used:
 * Junit
 * Mockito
 
-The web interface is the home page of the application (http://{server:port}/)
+The web interface is the home page of the application (http://{server:port}/).
+
 The web interface contains fields to search book suggestions.
 
 This is not possible to add, modify of delete books with the web interface, but it can be used via some rest APIs.
 
 Add/modify book:
 
-Method: POST
-URI: /books/save
-Data example:
+*Method: POST
+*URI: /books/save
+*Data example:
 ```
 {
     "id":"562ec8910364d102131849c5"
@@ -37,13 +38,13 @@ Data example:
     "overallRating": 4
 }
 ```
-To modify a book, the id must be included in the post request
-To add a book, the id must not be included in the post request
+*To modify a book, the id must be included in the post request
+*To add a book, the id must not be included in the post request
 
 Delete book:
-Method: GET
-URI: /books/delete/{id}
-{id} is the id of the book to delete
+* Method: GET
+* URI: /books/delete/{id}
+* {id} is the id of the book to delete
 
 The data is saved in a MongoDB, hosted on MongoLab.
 This is possible to change the database configuration in config.properties.
