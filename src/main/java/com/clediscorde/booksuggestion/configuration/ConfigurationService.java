@@ -7,6 +7,7 @@ import org.springframework.core.env.Environment;
 
 /**
  * Created by clediscorde on 2015-10-20.
+ * This class is used to retrieve application configuration from config.properties.
  */
 @Configuration
 @PropertySource("classpath:config.properties")

@@ -14,6 +14,7 @@ import java.util.stream.Collectors;
 
 /**
  * Created by clediscorde on 2015-10-21.
+ * This class is the Rest controller used to access the book database
  */
 @RestController
 @RequestMapping("/books")

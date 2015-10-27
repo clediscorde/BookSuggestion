@@ -11,6 +11,7 @@ import org.springframework.data.mongodb.repository.config.EnableMongoRepositorie
 
 /**
  * Created by clediscorde on 2015-10-20.
+ * This class is used to configure MongoDB
  */
 @Configuration
 @EnableMongoRepositories(basePackages = "com.clediscorde.booksuggestion.repository")

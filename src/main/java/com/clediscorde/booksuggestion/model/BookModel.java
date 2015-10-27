@@ -8,6 +8,7 @@ import javax.validation.constraints.Min;
 
 /**
  * Created by clediscorde on 2015-10-22.
+ * Book model used to save a book
  */
 public class BookModel {
     private String id;

@@ -18,6 +18,8 @@ import static java.util.stream.Collectors.toList;
 
 /**
  * Created by clediscorde on 2015-10-22.
+ * Proxy class used to isolate the Book repository class, and to add search feature that use the mongoTemplate on top of it.
+ * Controllers use this class to access the database.
  */
 @Service
 public class BookRepositoryProxy {
