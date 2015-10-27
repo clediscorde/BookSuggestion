@@ -5,6 +5,7 @@ import com.clediscorde.booksuggestion.model.BookCriteria;
 import com.clediscorde.booksuggestion.model.BookModel;
 import com.clediscorde.booksuggestion.repository.BookRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
@@ -47,11 +48,15 @@ public class BookRepositoryProxy {
         } else if (bookCriteria.getNumberOfPageMax() != null) {
             query.addCriteria(Criteria.where("numberOfPage").lte(bookCriteria.getNumberOfPageMax()));
         } else if (bookCriteria.getNumberOfPageMin() != null) {
-            query.addCriteria(Criteria.where("numberOfPage").gt(bookCriteria.getNumberOfPageMin()));
+            query.addCriteria(Criteria.where("numberOfPage").gte(bookCriteria.getNumberOfPageMin()));
         }
 
         if (bookCriteria.getPeriod() != null) {
             query.addCriteria(Criteria.where("yearOfPublication").gte(bookCriteria.getPeriod().getStart()).lte(bookCriteria.getPeriod().getEnd()));
+        }
+
+        if (!StringUtils.isEmpty(bookCriteria.getSortOrder())) {
+            query.with(new Sort(bookCriteria.getSortOrder()));
         }
 
         return mongoTemplate.find(query, Book.class).stream().map(b -> {
