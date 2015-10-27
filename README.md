@@ -3,6 +3,8 @@ Coding Assignment – Book Suggestion App
 
 I code this assignment not only to code an assignment, but also to explore technologies I'm less familiar with.
 
+## Technologies
+
 The following technologies were used:
 * Java
 * Maven
@@ -13,20 +15,24 @@ The following technologies were used:
 * Rest
 * Html
 * AngularJS
+* Bootstrap css
 * Junit
 * Mockito
 
-The web interface is the home page of the application (http://{server:port}/).
+## Interfaces
 
-The web interface contains fields to search book suggestions.
+### UI
 
-This is not possible to add, modify of delete books with the web interface, but it can be used via some rest APIs.
+* The web interface contains fields to search book suggestions.
+* URI: /
 
-Add/modify book:
+### REST
 
-*Method: POST
-*URI: /books/save
-*Data example:
+#### Add/modify book:
+
+* Method: POST
+* URI: /books/save
+* Data example:
 ```
 {
     "id":"562ec8910364d102131849c5"
@@ -38,13 +44,20 @@ Add/modify book:
     "overallRating": 4
 }
 ```
-*To modify a book, the id must be included in the post request
-*To add a book, the id must not be included in the post request
+* To modify a book, the id must be included in the post request
+* To add a book, the id must not be included in the post request
 
-Delete book:
+#### Delete book:
 * Method: GET
 * URI: /books/delete/{id}
 * {id} is the id of the book to delete
 
-The data is saved in a MongoDB, hosted on MongoLab.
-This is possible to change the database configuration in config.properties.
+## Database
+* The data is saved in a MongoDB, hosted on MongoLab.
+* This is possible to change the database configuration in config.properties.
+
+## Other possible improvements
+* Add/modify/delete books via the web UI
+* Client side validation
+* Client side error handling
+* Better user interface
