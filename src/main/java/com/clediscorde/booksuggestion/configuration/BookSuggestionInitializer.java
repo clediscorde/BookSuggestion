@@ -4,6 +4,7 @@ import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatche
 
 /**
  * Created by clediscorde on 2015-10-21.
+ * This class is used to configure the web application to use the Spring dispatch servlet.
  */
 public class BookSuggestionInitializer extends AbstractAnnotationConfigDispatcherServletInitializer {
 

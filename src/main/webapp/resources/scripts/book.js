@@ -40,7 +40,7 @@ bookSuggestionApp.controller('SuggestBookController', ['$scope', '$http', functi
         });
     };
 
-    $scope.sortOrder = ["overallRating"];
+    $scope.sortOrder = ["overallRating desc"];
     $scope.updateSortOrder = function (field) {
         for (i = 0; i < $scope.sortOrder.length; i++) {
             if ($scope.sortOrder[i] == field) {

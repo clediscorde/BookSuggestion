@@ -4,6 +4,7 @@ import org.springframework.data.annotation.Id;
 
 /**
  * Created by clediscorde on 2015-10-20.
+ * This class is the book database object
  */
 public class Book {
 
