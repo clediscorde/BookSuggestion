@@ -30,7 +30,8 @@
             </div>
             <div class="col-md-3">
                 <label for="period">Period</label>
-                <select id="period" class="form-control" ng-model="selectPeriod">
+                <select id="period" class="form-control" ng-model="selectPeriod"
+                        ng-change="updateSortOrder('yearOfPublication')">
                     <option value=""></option>
                     <option value="CLASSIC">Classic</option>
                     <option value="MODERN">Modern</option>
@@ -40,11 +41,13 @@
         <div class="row">
             <div class="col-md-3">
                 <label for="inputMinPage">Min page</label>
-                <input type="text" id="inputMinPage" ng-model="inputMinPage" class="form-control" placeholder="0">
+                <input type="text" id="inputMinPage" ng-model="inputMinPage" class="form-control" placeholder="0"
+                       ng-blur="updateSortOrder('numberOfPage')">
             </div>
             <div class="col-md-3">
                 <label for="inputMaxPage">Max page</label>
-                <input type="text" id="inputMaxPage" ng-model="inputMaxPage" class="form-control" placeholder="1000">
+                <input type="text" id="inputMaxPage" ng-model="inputMaxPage" class="form-control" placeholder="1000"
+                       ng-blur="updateSortOrder('numberOfPage')">
             </div>
         </div>
         <div class="row">&nbsp;</div>
@@ -56,12 +59,12 @@
     </form>
     <table class="table">
         <thead>
-            <th>Title</th>
-            <th>Author</th>
-            <th>Genre</th>
-            <th>Number of Page</th>
-            <th>Year of Publication</th>
-            <th>Overall Rating</th>
+        <th>Title</th>
+        <th>Author</th>
+        <th>Genre</th>
+        <th>Number of Page</th>
+        <th>Year of Publication</th>
+        <th>Overall Rating</th>
         </thead>
         <tr ng-repeat="b in books">
             <td>{{ b.title }}</td>

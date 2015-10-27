@@ -122,7 +122,7 @@ public class BookRepositoryProxyTest {
 
         Query query = queryArgumentCaptor.getValue();
         assertEquals(1, query.getQueryObject().keySet().size());
-        assertEquals("{ \"$gt\" : 1}", query.getQueryObject().get("numberOfPage").toString());
+        assertEquals("{ \"$gte\" : 1}", query.getQueryObject().get("numberOfPage").toString());
     }
 
     @Test
@@ -165,6 +165,21 @@ public class BookRepositoryProxyTest {
         Query query = queryArgumentCaptor.getValue();
         assertEquals(1, query.getQueryObject().keySet().size());
         assertEquals("Genre", query.getQueryObject().get("genre"));
+    }
+
+    @Test
+    public void testSearchSortOrder() throws Exception {
+        BookCriteria bookCriteria = getBookCriteria();
+        when(bookCriteria.getSortOrder()).thenReturn(new String[] {"numberOfPage", "overallRating"});
+        bookRepositoryProxy.search(bookCriteria);
+
+        ArgumentCaptor<Query> queryArgumentCaptor = ArgumentCaptor.forClass(Query.class);
+        verify(mongoTemplate).find(queryArgumentCaptor.capture(), eq(Book.class));
+
+        Query query = queryArgumentCaptor.getValue();
+        assertEquals(2, query.getSortObject().keySet().size());
+        assertEquals(1, query.getSortObject().get("numberOfPage"));
+        assertEquals(1, query.getSortObject().get("overallRating"));
     }
 
     private BookCriteria getBookCriteria() {

@@ -73,4 +73,24 @@ public class BookCriteriaTest {
         bookCriteria.setPeriod(Period.CLASSIC);
         assertEquals(Period.CLASSIC, bookCriteria.getPeriod());
     }
+
+    @Test
+    public void testGetSortorderDefault() throws Exception {
+        assertNull(bookCriteria.getSortOrder());
+    }
+
+    @Test
+    public void testGetSortorder() throws Exception {
+        bookCriteria.setSortOrder(new String[]{"SortOrder"});
+        assertEquals(1, bookCriteria.getSortOrder().length);
+        assertEquals("SortOrder", bookCriteria.getSortOrder()[0]);
+    }
+
+    @Test
+    public void testGetSortorderRemoveEmptyValues() throws Exception {
+        bookCriteria.setSortOrder(new String[]{"SortOrder", "", "SortOrder2"});
+        assertEquals(2, bookCriteria.getSortOrder().length);
+        assertEquals("SortOrder", bookCriteria.getSortOrder()[0]);
+        assertEquals("SortOrder2", bookCriteria.getSortOrder()[1]);
+    }
 }

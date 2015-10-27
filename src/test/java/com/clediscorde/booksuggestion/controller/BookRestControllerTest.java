@@ -1,6 +1,5 @@
 package com.clediscorde.booksuggestion.controller;
 
-import com.clediscorde.booksuggestion.exception.InvalidBookException;
 import com.clediscorde.booksuggestion.model.BookCriteria;
 import com.clediscorde.booksuggestion.model.BookModel;
 import com.clediscorde.booksuggestion.model.constant.Period;

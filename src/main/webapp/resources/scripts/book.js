@@ -30,13 +30,26 @@ bookSuggestionApp.controller('SuggestBookController', ['$scope', '$http', functi
                 "genre": $scope.selectGenre,
                 "numberOfPageMin": $scope.inputMinPage,
                 "numberOfPageMax": $scope.inputMaxPage,
-                "period": $scope.selectPeriod
+                "period": $scope.selectPeriod,
+                "sortOrder": $scope.sortOrder.toString()
             }
         }).then(function (response) {
             $scope.books = response.data;
         }, function (err) {
             $scope.books = response.data | "Error when trying to retrieve authors."
         });
-    }
+    };
+
+    $scope.sortOrder = ["overallRating"];
+    $scope.updateSortOrder = function (field) {
+        for (i = 0; i < $scope.sortOrder.length; i++) {
+            if ($scope.sortOrder[i] == field) {
+                delete $scope.sortOrder[i];
+                break;
+            }
+        }
+        $scope.sortOrder.unshift(field);
+    };
+
 }]);
 
