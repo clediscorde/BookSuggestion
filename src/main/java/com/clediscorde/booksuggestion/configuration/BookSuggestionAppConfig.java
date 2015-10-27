@@ -9,6 +9,7 @@ import org.springframework.web.servlet.resource.PathResourceResolver;
 
 /**
  * Created by clediscorde on 2015-10-21.
+ * This class is use to configure some elements of the Spring framework.
  */
 @Configuration
 @EnableWebMvc

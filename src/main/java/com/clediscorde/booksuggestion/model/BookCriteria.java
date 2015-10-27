@@ -7,6 +7,7 @@ import java.util.Arrays;
 
 /**
  * Created by clediscorde on 2015-10-22.
+ * Book search criteria
  */
 public class BookCriteria {
     private String   author;

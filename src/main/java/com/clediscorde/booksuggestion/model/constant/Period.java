@@ -2,6 +2,7 @@ package com.clediscorde.booksuggestion.model.constant;
 
 /**
  * Created by clediscorde on 2015-10-22.
+ * This class define period that the user can select in the ui.
  */
 public enum Period {
 
