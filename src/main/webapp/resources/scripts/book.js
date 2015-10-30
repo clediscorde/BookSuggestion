@@ -3,7 +3,7 @@ var bookSuggestionApp = angular.module('bookSuggestionApp', []);
 bookSuggestionApp.controller('SuggestBookController', ['$scope', '$http', function ($scope, $http) {
 
     var initAuthor = function () {
-        $http.get('/books/authors')
+        $http.get('books/authors')
             .then(function (response) {
                 $scope.authors = response.data;
             }, function (err) {
@@ -12,7 +12,7 @@ bookSuggestionApp.controller('SuggestBookController', ['$scope', '$http', functi
     };
 
     var initGenre = function () {
-        $http.get('/books/genres')
+        $http.get('books/genres')
             .then(function (response) {
                 $scope.genres = response.data;
             }, function (err) {
@@ -24,7 +24,7 @@ bookSuggestionApp.controller('SuggestBookController', ['$scope', '$http', functi
     initGenre();
 
     $scope.suggestBook = function () {
-        $http.get('/books/search', {
+        $http.get('books/search', {
             params: {
                 "author": $scope.selectAuthor,
                 "genre": $scope.selectGenre,
