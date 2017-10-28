@@ -12,5 +12,4 @@ jobs:
   - get: source-code
     trigger: true
   - task: build
-    privileged: true
     file: source-code/ci/build.yml
