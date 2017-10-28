@@ -5,6 +5,17 @@ resources:
     uri: https://github.com/clediscorde/BookSuggestion.git
     branch: master
 
+- name: PWS
+  type: cf
+  source:
+    api: {{pws-api}}
+    organization: {{pws-organization}}
+    username: {{deploy-username}}
+    password: {{deploy-password}}
+    skip_cert_check: true
+    space: {{pws-space}}
+    skip_cert_check: true
+
 jobs:
 - name: build
   public: true
@@ -13,3 +24,7 @@ jobs:
     trigger: true
   - task: build
     file: source-code/ci/build.yml
+  - put: non-prod
+      params:
+        manifest: source-code/manifests.yml
+        path: build-output/book-suggestion-1.0-SNAPSHOT.war
