@@ -27,3 +27,4 @@ jobs:
   - put: cf
     params:
       manifest: source-code/manifest.yml
+      path: build-output
