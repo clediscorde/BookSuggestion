@@ -27,4 +27,4 @@ jobs:
   - put: cf
     params:
       manifest: source-code/manifest.yml
-      path: build-output
+      path: build-output/book-suggestion-1.0-SNAPSHOT.war

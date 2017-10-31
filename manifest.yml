@@ -5,6 +5,5 @@ applications:
   timeout: 180
   instances: 1
   random-route: false
-  path: book-suggestion-1.0-SNAPSHOT.war
   env:
     JAVA_OPTS: -Djava.security.egd=file:///dev/urandom
