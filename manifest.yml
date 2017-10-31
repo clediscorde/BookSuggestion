@@ -1,5 +1,5 @@
 applications:
-- name: concourse-maven-cf-simple
+- name: book
   memory: 256M
   instances: 1
-  path: source-code/target/book-suggestion-1.0-SNAPSHOT.war
+  path: target/book-suggestion-1.0-SNAPSHOT.war
