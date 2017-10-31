@@ -16,7 +16,6 @@ resources:
     space: development
     skip_cert_check: true
 
-
 jobs:
 - name: build
   public: true
@@ -28,3 +27,4 @@ jobs:
   - put: pws
     params:
         manifest: source-code/manifest.yml
+        repository: build-output
