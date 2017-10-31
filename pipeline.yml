@@ -27,4 +27,3 @@ jobs:
   - put: pws
     params:
         manifest: source-code/manifest.yml
-        path: source-code/target/book-suggestion-1.0-SNAPSHOT.war
