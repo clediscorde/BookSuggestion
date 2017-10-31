@@ -1,3 +1,4 @@
+---
 resources:
 - name: source-code
   type: git
@@ -5,16 +6,15 @@ resources:
     uri: https://github.com/clediscorde/BookSuggestion.git
     branch: master
 
-- name: pws
+- name: cf
   type: cf
   source:
-    api: https://api.run.pivotal.io
-    organization: caledi-org
-    username: deploy@caledi.ca
-    password: Deploy@123
-    skip_cert_check: true
-    space: development
-    skip_cert_check: true
+    api: {{cf-api}}
+    username: {{cf-username}}
+    password: {{cf-password}}
+    organization: {{cf-organization}}
+    space: {{cf-space}}
+    #skip_cert_check: true
 
 jobs:
 - name: build
@@ -24,7 +24,7 @@ jobs:
     trigger: true
   - task: build
     file: source-code/ci/build.yml
-  - put: pws
+  - put: cf
     params:
-        manifest: source-code/manifest.yml
-        repository: build-output
+      manifest: source-code/manifest.yml
+      path: build-output/book-suggestion-1.0-SNAPSHOT.war
