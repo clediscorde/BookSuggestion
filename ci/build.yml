@@ -10,9 +10,8 @@ image_resource:
 inputs:
   - name: source-code
 
-run:
-  path: "source-code/mvnw"
-  args: ["-f", "source-code/pom.xml", "clean", "package"]
+outputs:
+  - name: build-output
 
-params:
-  MAVEN_BASEDIR: source-code
+run:
+  path: source-code/ci/build.sh
