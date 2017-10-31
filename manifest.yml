@@ -2,4 +2,4 @@ applications:
 - name: book
   memory: 256M
   instances: 1
-  path: target/book-suggestion-1.0-SNAPSHOT.war
+  path: build-output/book-suggestion-1.0-SNAPSHOT.war
